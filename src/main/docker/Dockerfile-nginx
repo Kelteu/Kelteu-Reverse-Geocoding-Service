@@ -1,0 +1,22 @@
+FROM alpine:3.19
+
+ENV NGINX_DIR=/var/lib/nginx
+ENV NGINX_LOG_DIR=/var/log/nginx
+ENV NGINX_RUN_DIR=/run/nginx
+
+RUN addgroup -S driver && adduser -S driver -G driver
+
+# Install nginx and adjust nginx config to stay in foreground
+RUN apk update && apk add --no-cache nginx nginx-mod-http-geoip nginx-mod-http-headers-more;
+
+COPY ./mime.types /etc/nginx/mime.types
+
+RUN mkdir -p $NGINX_LOG_DIR && chown -R driver:driver $NGINX_LOG_DIR \
+  && mkdir -p $NGINX_RUN_DIR && chown -R driver:driver $NGINX_RUN_DIR \
+  && chown -R driver:driver $NGINX_DIR
+
+EXPOSE 80
+EXPOSE 443
+
+USER driver:driver
+CMD ["/usr/sbin/nginx"]

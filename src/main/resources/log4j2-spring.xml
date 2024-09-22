@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout
+                pattern="%d{yyyy-MM-dd'T'HH:mm:ss.SSS'Z'} &lt;&gt; {thread=%thread} %level: [%logger{35}] %crlf(%m) %n" />
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <!-- LOG everything at INFO level -->
+        <Root level="info">
+            <AppenderRef ref="Console" />
+        </Root>
+
+        <Logger name="com.kelteu.rgs" level="info"></Logger>
+    </Loggers>
+
+</Configuration>

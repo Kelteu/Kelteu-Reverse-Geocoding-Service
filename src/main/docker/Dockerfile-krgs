@@ -1,0 +1,26 @@
+FROM azul/zulu-openjdk-alpine:21
+#FROM ghcr.io/graalvm/jdk-community:21
+
+ARG JAR_FILE=kelteu-rgs-exec.jar
+ARG SPRING_PROFILES=production
+ENV JAVA_SPRING_PROFILES=${SPRING_PROFILES}
+ENV APP_JAR="/${JAR_FILE}"
+ENV CONFIG_OVERRIDE_DIR=/config/
+
+# Create a group and user
+RUN addgroup -S driver && adduser -S driver -G driver
+
+# Setup folders structure
+RUN mkdir -p $CONFIG_OVERRIDE_DIR && chown -R driver:driver $CONFIG_OVERRIDE_DIR \
+  && chown -R driver:driver /tmp
+
+VOLUME ["/tmp", "${CONFIG_OVERRIDE_DIR}"]
+
+EXPOSE 8080/tcp
+
+COPY ./entrypoint.sh /entrypoint.sh
+COPY ${JAR_FILE} /${JAR_FILE}
+
+USER driver:driver
+
+ENTRYPOINT ["/bin/sh", "/entrypoint.sh"]
