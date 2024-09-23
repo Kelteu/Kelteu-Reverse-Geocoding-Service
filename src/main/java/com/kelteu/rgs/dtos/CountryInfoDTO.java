@@ -60,67 +60,67 @@ public class CountryInfoDTO {
             // hide errors
         }
         try {
-            areaInSKM = Double.valueOf(splitLine[5]);
+            areaInSKM = Double.valueOf(splitLine[6]);
         } catch (Exception e) {
             // hide errors
         }
         try {
-            population = Double.valueOf(splitLine[6]);
+            population = Double.valueOf(splitLine[7]);
         } catch (Exception e) {
             // hide errors
         }
         try {
-            continent = splitLine[7];
+            continent = splitLine[8];
         } catch (Exception e) {
             // hide errors
         }
         try {
-            tld = splitLine[8];
+            tld = splitLine[9];
         } catch (Exception e) {
             // hide errors
         }
         try {
-            currencyCode = splitLine[9];
+            currencyCode = splitLine[10];
         } catch (Exception e) {
             // hide errors
         }
         try {
-            currencyName = splitLine[10];
+            currencyName = splitLine[11];
         } catch (Exception e) {
             // hide errors
         }
         try {
-            phone = splitLine[11];
+            phone = splitLine[12];
         } catch (Exception e) {
             // hide errors
         }
         try {
-            postalCodeFormat = splitLine[12];
+            postalCodeFormat = splitLine[13];
         } catch (Exception e) {
             // hide errors
         }
         try {
-            postalCodeRegex = splitLine[13];
+            postalCodeRegex = splitLine[14];
         } catch (Exception e) {
             // hide errors
         }
         try {
-            languages = Arrays.asList(splitLine[14].split(","));
+            languages = Arrays.asList(splitLine[15].split(","));
         } catch (Exception e) {
             // hide errors
         }
         try {
-            geonameid = splitLine[15];
+            geonameid = splitLine[16];
         } catch (Exception e) {
             // hide errors
         }
         try {
-            neighbours = Arrays.asList(splitLine[16].split(","));
+            neighbours = Arrays.asList(splitLine[17].split(","));
         } catch (Exception e) {
             // hide errors
         }
         try {
-            equivalentFipsCode = splitLine[17];
+            equivalentFipsCode = splitLine[18];
         } catch (Exception e) {
             // hide errors
         }
