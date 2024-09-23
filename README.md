@@ -49,4 +49,5 @@ To see the swagger console showcasing the available APIs:
 http://localhost:82/swagger-ui/index.html
 ```
 
+Note: For the IP reverse location service to work, your requests must originate from a public IP address.
 
